@@ -5,8 +5,6 @@
 
 ## 1. Programming Paradigms
 
-![Programming Paradigms](Programming Paradigms.png)
-
 Programming Paradigms are fundamental styles or approaches to programming — they define how you think about and structure your code to solve problems. 
 
 Each paradigm provides its own model of computation, abstraction mechanisms, and design philosophy.
