@@ -193,3 +193,20 @@ Most modern languages support multiple paradigms:
 | **Reactive**            | Streams & events       | Responsiveness              | Real-time systems        |
 
 ## 2. Quality Measurements
+
+## 2.1 Software Quality Factors in Production-Grade Systems
+
+> Design → Implement → Test → Build → Containerize → Deploy → Monitor → Improve
+
+### Production-Grade Java Quality Workflow
+
+| **Stage** | **Quality Focus**          | **Tools / Practices**            |
+| --------- | -------------------------- | -------------------------------- |
+| Design    | Reliability, Scalability   | UML, C4 Model, DDD               |
+| Code      | Maintainability, Security  | Static analysis, Secure coding   |
+| Test      | Functional, Non-functional | JUnit, Gatling                   |
+| Build     | Consistency                | Maven, Gradle, CI/CD             |
+| Deploy    | Portability                | Docker, Kubernetes               |
+| Monitor   | Observability              | Actuator, Micrometer, Prometheus |
+| Improve   | Continuous Quality         | Feedback loops, SRE practices    |
+
