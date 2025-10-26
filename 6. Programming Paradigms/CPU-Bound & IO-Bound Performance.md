@@ -123,13 +123,13 @@ To make I/O-bound programs faster:
 
 ## Quick Insights
 
-| Category                                            | 🥇 **Winner**              | 🥈 **Runner-up** | 💬 Notes                                                                |
+| Category                                            |  **Winner**              | **Runner-up** | 💬 Notes                                                                |
 | --------------------------------------------------- | -------------------------- | ---------------- | ----------------------------------------------------------------------- |
-| **CPU-Bound Performance**                           | 🥇 C++                     | 🥈 Java          | Native vs JIT-optimized — both deliver great compute performance.       |
-| **I/O-Bound Efficiency**                            | 🥇 JavaScript / TypeScript | 🥈 Java          | Event-loop (JS/TS) dominates I/O; Java excels with reactive frameworks. |
-| **Balanced CPU + I/O Capability**                   | 🥇 Java                    | 🥈 C++           | Strong multi-threading and async I/O support.                           |
-| **Ease of Async Development**                       | 🥇 TypeScript              | 🥈 Python        | Simple `async/await` and high-level frameworks.                         |
-| **Developer Productivity vs Performance Trade-off** | 🥇 Python                  | 🥈 TypeScript    | Python fastest to write; TS offers safety for large async apps.         |
+| **CPU-Bound Performance**                           | C++                     | Java          | Native vs JIT-optimized — both deliver great compute performance.       |
+| **I/O-Bound Efficiency**                            | JavaScript / TypeScript | Java          | Event-loop (JS/TS) dominates I/O; Java excels with reactive frameworks. |
+| **Balanced CPU + I/O Capability**                   | Java                    | C++           | Strong multi-threading and async I/O support.                           |
+| **Ease of Async Development**                       | TypeScript              | Python        | Simple `async/await` and high-level frameworks.                         |
+| **Developer Productivity vs Performance Trade-off** | Python                  | TypeScript    | Python fastest to write; TS offers safety for large async apps.         |
 
 ## In short:
 
