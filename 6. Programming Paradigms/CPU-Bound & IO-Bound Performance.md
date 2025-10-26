@@ -121,16 +121,15 @@ To make I/O-bound programs faster:
 > In short:  
 > I/O-bound tasks spend most of their time **waiting for data** — the best way to make them faster is through **asynchronous or parallel I/O**.
 
-## 3. Combined CPU vs I/O Suitability Summary
+## Quick Insights
 
-| **Language**   | **CPU-Bound**                                                                                                   | **I/O-Bound**                                                                                                                    | **Recommended For**                                                                                                                                                                            |
-| -------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **C++**        |  **Excellent** — Compiled to native machine code; best raw CPU performance and full multithreading.           |  **High** — Fastest I/O possible using libraries (Boost.Asio, epoll, libuv), but requires manual concurrency management.       |  **High-performance systems**, **real-time apps**, **game engines**, **HPC**, **trading systems**, **databases**, and **network daemons** where maximum performance and fine control matter. |
-| **Java**       |  **High** — JIT-compiled (HotSpot JVM); strong multithreading and stable performance for compute-heavy tasks. |  **Excellent** — Mature async via NIO, CompletableFuture, and Reactive Streams; handles large-scale concurrent I/O gracefully. |  **Enterprise backends**, **microservices**, **banking systems**, **Android apps**, and **high-load servers** requiring scalability and reliability.                                         |
-| **JavaScript** |  **Low** — Single-threaded event loop; CPU-heavy tasks block execution unless offloaded to workers.           |  **Excellent** — Event-driven, non-blocking async I/O; handles thousands of concurrent requests efficiently.                   |  **Web servers**, **real-time apps (chat, streaming)**, **front-end UIs**, and **lightweight microservices** where I/O concurrency is key.                                                   |
-| **TypeScript** |  **Low** — Same runtime as JS (Node.js); CPU tasks block unless delegated to workers.                         |  **Excellent** — Type-safe async I/O; ideal for large-scale Node.js systems with many concurrent users.                        |  **Full-stack web apps**, **API gateways**, **serverless functions**, **enterprise-scale Node.js services** with maintainability and safety.                                                 |
-| **Python**     |  **Moderate** — Slower interpreter and GIL limit multithreading; faster with C extensions (NumPy, Cython).    |  **Good** — Async I/O via `asyncio`, `aiohttp`, or `FastAPI`; moderate efficiency for I/O tasks.                               |  **Data science**, **machine learning**, **automation**, **APIs**, and **prototyping** where readability and rapid development outweigh raw performance.                                     |
-
+| Category                                            | 🥇 **Winner**              | 🥈 **Runner-up** | 💬 Notes                                                                |
+| --------------------------------------------------- | -------------------------- | ---------------- | ----------------------------------------------------------------------- |
+| **CPU-Bound Performance**                           | 🥇 C++                     | 🥈 Java          | Native vs JIT-optimized — both deliver great compute performance.       |
+| **I/O-Bound Efficiency**                            | 🥇 JavaScript / TypeScript | 🥈 Java          | Event-loop (JS/TS) dominates I/O; Java excels with reactive frameworks. |
+| **Balanced CPU + I/O Capability**                   | 🥇 Java                    | 🥈 C++           | Strong multi-threading and async I/O support.                           |
+| **Ease of Async Development**                       | 🥇 TypeScript              | 🥈 Python        | Simple `async/await` and high-level frameworks.                         |
+| **Developer Productivity vs Performance Trade-off** | 🥇 Python                  | 🥈 TypeScript    | Python fastest to write; TS offers safety for large async apps.         |
 
 ## In short:
 
