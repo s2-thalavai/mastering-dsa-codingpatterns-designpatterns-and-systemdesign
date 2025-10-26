@@ -121,18 +121,16 @@ To make I/O-bound programs faster:
 > In short:  
 > I/O-bound tasks spend most of their time **waiting for data** — the best way to make them faster is through **asynchronous or parallel I/O**.
 
-## 3. CPU-Bound vs I/O-Bound — Side by Side
+## 3. Combined CPU vs I/O Suitability Summary
 
-| Feature                  | **CPU-Bound**                              | **I/O-Bound**                                |
-| ------------------------ | ------------------------------------------ | -------------------------------------------- |
-| **Main bottleneck**      | CPU (computation)                          | Input/output (network, disk, etc.)           |
-| **CPU usage**            | High (near 100%)                           | Low or fluctuating                           |
-| **Wait time**            | Minimal                                    | High (waiting for external data)             |
-| **Best optimization**    | Parallelism / multicore                    | Asynchronous / non-blocking I/O              |
-| **Example tasks**        | Encryption, data processing, ML, rendering | File upload, API calls, database queries     |
-| **Languages that excel** | Go, Java, C++                              | Go, JavaScript, TypeScript, Python (asyncio) |
+| **Language**   | **CPU-Bound**                                                                                                   | **I/O-Bound**                                                                                                                    | **Recommended For**                                                                                                                                                                            |
+| -------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **C++**        |  **Excellent** — Compiled to native machine code; best raw CPU performance and full multithreading.           |  **High** — Fastest I/O possible using libraries (Boost.Asio, epoll, libuv), but requires manual concurrency management.       |  **High-performance systems**, **real-time apps**, **game engines**, **HPC**, **trading systems**, **databases**, and **network daemons** where maximum performance and fine control matter. |
+| **Java**       |  **High** — JIT-compiled (HotSpot JVM); strong multithreading and stable performance for compute-heavy tasks. |  **Excellent** — Mature async via NIO, CompletableFuture, and Reactive Streams; handles large-scale concurrent I/O gracefully. |  **Enterprise backends**, **microservices**, **banking systems**, **Android apps**, and **high-load servers** requiring scalability and reliability.                                         |
+| **JavaScript** |  **Low** — Single-threaded event loop; CPU-heavy tasks block execution unless offloaded to workers.           |  **Excellent** — Event-driven, non-blocking async I/O; handles thousands of concurrent requests efficiently.                   |  **Web servers**, **real-time apps (chat, streaming)**, **front-end UIs**, and **lightweight microservices** where I/O concurrency is key.                                                   |
+| **TypeScript** |  **Low** — Same runtime as JS (Node.js); CPU tasks block unless delegated to workers.                         |  **Excellent** — Type-safe async I/O; ideal for large-scale Node.js systems with many concurrent users.                        |  **Full-stack web apps**, **API gateways**, **serverless functions**, **enterprise-scale Node.js services** with maintainability and safety.                                                 |
+| **Python**     |  **Moderate** — Slower interpreter and GIL limit multithreading; faster with C extensions (NumPy, Cython).    |  **Good** — Async I/O via `asyncio`, `aiohttp`, or `FastAPI`; moderate efficiency for I/O tasks.                               |  **Data science**, **machine learning**, **automation**, **APIs**, and **prototyping** where readability and rapid development outweigh raw performance.                                     |
 
-##
 
 ## In short:
 
