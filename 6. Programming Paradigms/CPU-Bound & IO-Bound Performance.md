@@ -19,9 +19,9 @@ That means most of the time, your code is doing **computations** — not waiting
 - Large numerical computations (matrix operations, sorting huge lists)
 
 ## Typical Characteristics
-- 🔹 High CPU usage (often 90–100%)  
-- 🔹 Low I/O activity (no long waits for network or disk)  
-- 🔹 Speed improves if you use a **faster processor** or **more CPU cores**
+ 🔹 High CPU usage (often 90–100%)  
+ 🔹 Low I/O activity (no long waits for network or disk)  
+ 🔹 Speed improves if you use a **faster processor** or **more CPU cores**
 
 ## Handling CPU-Bound Tasks
 
@@ -79,9 +79,9 @@ That means your code spends most of the time **waiting** — for data from disk,
 - Logging or saving data  
 
 ## Typical Characteristics
-- 🔹 **Low CPU usage**  
-- 🔹 **High waiting time** (I/O latency)  
-- 🔹 Speed improves if you use **asynchronous** or **parallel I/O operations**
+ 🔹 **Low CPU usage**  
+ 🔹 **High waiting time** (I/O latency)  
+ 🔹 Speed improves if you use **asynchronous** or **parallel I/O operations**
 
 ## Handling I/O-Bound Tasks
 
