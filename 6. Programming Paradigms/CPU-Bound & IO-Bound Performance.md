@@ -6,13 +6,9 @@
 A **CPU-bound task** is one where the **speed of the program is limited by the processor (CPU)**.  
 That means most of the time, your code is doing **computations** — not waiting for anything external.
 
----
-
 ## In Simple Terms
 
 > The **CPU is the bottleneck**.
-
----
 
 ## Examples
 - Calculating prime numbers or Fibonacci sequence  
@@ -22,14 +18,10 @@ That means most of the time, your code is doing **computations** — not waiting
 - Encrypting/decrypting data  
 - Large numerical computations (matrix operations, sorting huge lists)
 
----
-
 ## Typical Characteristics
 - 🔹 High CPU usage (often 90–100%)  
 - 🔹 Low I/O activity (no long waits for network or disk)  
 - 🔹 Speed improves if you use a **faster processor** or **more CPU cores**
-
----
 
 ## Handling CPU-Bound Tasks
 
@@ -69,20 +61,14 @@ To make CPU-bound programs faster:
 | **Optimization** | Parallelism, faster CPU, compiled code |
 | **Best suited languages** | Go, Java, C++, optimized Python |
 
----
-
 # 2. What Does I/O-Bound Mean?
 
 ## Definition
 An **I/O-bound task** is one where the **speed of the program is limited by input/output operations**, not the CPU.  
 That means your code spends most of the time **waiting** — for data from disk, network, or another external resource.
 
----
-
 ## In Simple Terms
 > The **program is waiting**, not calculating.
-
----
 
 ## Examples
 - Reading or writing files from disk  
@@ -92,14 +78,10 @@ That means your code spends most of the time **waiting** — for data from disk,
 - Streaming video or audio over a network  
 - Logging or saving data  
 
----
-
 ## Typical Characteristics
 - 🔹 **Low CPU usage**  
 - 🔹 **High waiting time** (I/O latency)  
 - 🔹 Speed improves if you use **asynchronous** or **parallel I/O operations**
-
----
 
 ## Handling I/O-Bound Tasks
 
@@ -136,12 +118,8 @@ To make I/O-bound programs faster:
 | **Optimization** | Async / non-blocking I/O |
 | **Best suited languages** | Go, JavaScript, TypeScript, Python (asyncio), Java (NIO) |
 
----
-
 > In short:  
 > I/O-bound tasks spend most of their time **waiting for data** — the best way to make them faster is through **asynchronous or parallel I/O**.
-
----
 
 ## 3. CPU-Bound vs I/O-Bound — Side by Side
 
@@ -165,5 +143,3 @@ To make I/O-bound programs faster:
 > Python → Best for data, AI, automation, not performance.
 
 > Go → Best all-rounder for modern distributed, concurrent, and high-performance backends.
-
----
