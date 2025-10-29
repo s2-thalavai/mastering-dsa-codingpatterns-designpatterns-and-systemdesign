@@ -189,6 +189,31 @@ In a Procure-to-Pay pipeline:
 That architecture easily sustains >100K RPS, horizontally scalable in AKS.
 
 
+## Go Frameworks Comparision
+
+| Metric       | **Fiber**   | **Gin** |
+| ------------ | ----------- | ------- |
+| Requests/sec | **238,450** | 112,820 |
+| Avg Latency  | 1.2 ms      | 2.8 ms  |
+| Transfer/sec | 28 MB/s     | 14 MB/s |
+| Errors       | 0           | 0       |
+
+✅ Fiber handles ~2× throughput at half the latency on identical hardware.
+
+## Real-World Recommendation
+
+| Component                           | Recommended Framework         |
+| ----------------------------------- | ----------------------------- |
+| **API Gateway / Ingestion Layer**   | ⚡ **Fiber**                   |
+| **Validation & Rules (Complex)**    | 🧵 **Gin** or **Spring Boot** |
+| **Async Workers / Kafka Consumers** | ⚡ **Fiber**                   |
+| **ML or AI integrations**           | 🐍 **Python (FastAPI)**       |
+
+---
+
+
+
+---
 ## ✅ Recommended Stack (for Procure-to-Pay or Invoice Processing Platform)
 
 | Layer                            | Suggested Tech              | Rationale                               |
