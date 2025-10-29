@@ -897,3 +897,177 @@ public void onMessage(String payload) {
 **Scaling:** use fixed thread pools sized to CPU cores to process rules concurrently. 
 For complex rules consider a rule-service cluster with sticky routing when rule state matters.
 
+## D. Enrichment Service — Python/Go
+
+- Looks up vendor data, tax rates, payment terms (from DB or external APIs)
+
+- Adds enrichment and publishes invoice.enriched or writes to DB
+
+## E. Result Collector / Database
+
+Consume invoice.validation.result and persist to transactional DB (Postgres)
+
+Push notifications to UI / ERP or create work item in downstream systems
+
+Writes audit trail to immutable store (S3 + event store/table)
+
+## 5) Autoscaling & orchestration (Kubernetes + KEDA)
+
+Suggested pattern:
+
+- Deploy each microservice as a Deployment with HorizontalPodAutoscaler (HPA).
+
+- Use KEDA to autoscale consumers by Kafka partition lag or RabbitMQ queue length.
+
+- For CPU-bound OCR, scale by CPU usage and set PodDisruptionBudgets.
+
+Example: scale OCR workers when invoice.uploaded lag > threshold. Set max pods to cap costs.
+
+## 6) Error handling, retries & dead-letter
+
+- At-least-once processing: design idempotency (use invoice_id) to avoid double-processing.
+
+- Retries: exponential backoff for transient errors (3-5 attempts), then send to dead-letter topic with failure reason.
+
+- Poison messages: send to DLQ and create human alert/work item.
+
+- Transactional writes: use Kafka transactions where available (producer tx) when you must atomically publish events + DB writes.
+
+## 7) Observability & tracing
+
+- Metrics: Prometheus exporters on each service (export HTTP request latency, processing time per event, queue lag).
+
+- Dashboards: Grafana dashboards for throughput, error rate, consumer lag.
+
+- Distributed Tracing: Jaeger / OpenTelemetry for cross-service traces (span per ingest → ocr → rule).
+
+- Logs: structured JSON logs shipped to ELK or Loki; include invoice_id as correlation id.
+
+- SLOs: e.g., 95th percentile end-to-end processing < 30s, mean OCR CPU < X.
+
+- Correlation: set trace_id and include in Kafka message headers for tracing across services.
+
+## 8) Security & compliance
+
+- Auth: API Gateway enforces OAuth2/JWT; only authenticated clients may POST invoices.
+
+- mTLS: between services (or service mesh like Istio) for in-cluster encryption and mutual auth.
+
+- Data-at-rest: S3 encryption, DB encryption (TDE).
+
+- PII: redact or secure PII in logs; store sensitive fields encrypted.
+
+- Audit: write immutable audit events to S3 and append-only DB table for regulatory compliance.
+
+- Secrets: use Kubernetes Secrets or external store (HashiCorp Vault) for DB keys, broker creds.
+
+## 9) Performance tuning & recommended defaults
+
+- OCR: heavy CPU — pin to nodes with GPUs if using GPU OCR; set node taints/affinities.
+
+- Rule Engine: run rules in memory; shard by vendor group if rules are heavy and stateful.
+
+- Message sizes: keep minimal; don’t pass PDFs in Kafka—use S3 pointer.
+
+- Partitioning: partition Kafka topics by vendor_id or invoice_id depending on ordering needs.
+
+- Idempotency: use DB unique constraints on invoice_id to prevent double writes.
+
+## 10) DevOps & CI/CD
+
+- Use GitOps (ArgoCD) or Helm for deployments.
+
+- Pipeline stages:
+
+    - build → unit tests → container image → security scans (Snyk/Trivy) → push to registry → deploy to staging → run integration tests (including contract tests for Kafka topics) → promote to prod.
+
+- Canary or blue/green deployment for rule engine changes (rules can break workflows).
+
+## 11) Example end-to-end sequence (flow)
+
+- Client uploads invoice to API → API writes file to S3 and publishes invoice.uploaded.
+
+- OCR worker consumes invoice.uploaded, downloads PDF, OCRs, publishes invoice.ocr.completed.
+
+- Rule Engine consumes invoice.ocr.completed, runs validations; triggers invoice.validation.result.
+
+- Enrichment service responds to validation result and calls external lookups if needed.
+
+- Result Collector persists final status and notifies ERP via REST/gRPC.
+
+- Audit events stored into S3; monitoring dashboards updated.
+
+## 12) Minimal k8s snippet — OCR worker (Deployment + HPA)
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocr-worker
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+      - name: ocr
+        image: registry.example.com/ocr:latest
+        resources:
+          limits:
+            cpu: "2"
+            memory: "4Gi"
+          requests:
+            cpu: "1"
+            memory: "2Gi"
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ocr-worker-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ocr-worker
+  minReplicas: 2
+  maxReplicas: 12
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+```
+
+Use KEDA to autoscale by queue lag for Kafka/RabbitMQ.
+
+## 13) Testing & contracts
+
+- Contract tests for JSON messages (Pact or similar).
+
+- Chaos testing: simulate broker outages, consumer crashes, worker slowdowns.
+
+- Performance tests: use k6 / locust to simulate high ingest rates and measure consumer scaling.
+
+## 14) Tradeoffs & patterns
+
+- Synchronous REST orchestration is simpler but not scalable for heavy loads — avoid it for OCR & rules.
+
+- Event-driven favors loose coupling, resilience, and scaling but increases system complexity.
+
+- Exactly-once semantics are hard; aim for idempotency + at-least-once.
+
+- Stateful rules: if rules depend on historical state, keep that state in a fast store (Redis/DB) and shard accordingly.
+
+## 15) Next steps I can do for you (pick any — I’ll produce right away)
+
+- Full sample repo scaffold (FastAPI ingest, Go OCR consumer, Spring Boot rule engine) with Dockerfiles.
+
+- Kubernetes manifests + KEDA autoscaling + Helm charts for the whole stack.
+
+- Complete Kafka message schemas (Avro/Protobuf) and contract tests.
+
+- Detailed Prometheus/Grafana dashboards and OpenTelemetry instrumented code snippets.
+
+- Example Drools rules and tests for common invoice checks.
+
