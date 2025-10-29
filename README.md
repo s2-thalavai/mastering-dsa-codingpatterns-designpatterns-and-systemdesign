@@ -152,6 +152,43 @@ TypeScript → best in modern full-stack (API + UI) apps.
 | **Full-Stack Flexibility**   | TypeScript | Python       | Go         |
 | **Ecosystem & Tooling**      | Java       | Python       | TypeScript |
 
+##🧠 Benchmark Summary
+
+|        Feature / Metric |      **Java (21 + Loom)** |  **Python (FastAPI)** |                      **Go (Fiber/Gin)** |
+| ----------------------: | ------------------------: | --------------------: | --------------------------------------: |
+|    **Throughput (RPS)** |                 100K–150K | 20K–40K (needs scale) |                               150K–300K |
+|    **Avg Latency (ms)** |                       2–5 |                 10–30 |                                     1–3 |
+|        **Startup Time** |            Slow (seconds) |        Fast (seconds) |                Very fast (milliseconds) |
+|   **Concurrency Model** | Threads / Virtual Threads |  asyncio (event loop) |                              Goroutines |
+| **Memory per Instance** |                200–400 MB |            100–200 MB |                                30–80 MB |
+|     **Ease of Scaling** |                    Medium |     Easy (horizontal) |            Easy (vertical + horizontal) |
+|     **Developer Speed** |                  Moderate |                  Fast |                                Moderate |
+|           **Use Cases** |  Enterprise, Rule Engines |     ML, Orchestration | High-performance APIs, Stream Consumers |
+
+
+## 💡 Recommendation by Scenario
+
+| Scenario                                                        | Best Choice                                          |
+| --------------------------------------------------------------- | ---------------------------------------------------- |
+| **High-performance microservice (100K RPS)**                    | 🦦 **Go**                                            |
+| **Enterprise-grade API with complex business rules**            | ☕ **Java (Quarkus/Spring Boot + Loom)**              |
+| **ML orchestration or async integration layer**                 | 🐍 **Python (FastAPI)**                              |
+| **Serverless (AWS/Azure Functions)**                            | Go (fast cold start) or Python (simplicity)          |
+| **Procure-to-Pay orchestration (complex logic + integrations)** | **Java for rule engine**, Go for ingestion/streaming |
+
+## Hybrid Example (Best of All Worlds)
+
+In a Procure-to-Pay pipeline:
+
+  - Go → handles invoice ingestion and Kafka consumers (high RPS, lightweight)
+
+  - Azure AI → Python for content extraction, normalization
+
+  - Spring Boot (Java) → rule engine + scoring logic + persistence/audit
+
+That architecture easily sustains >100K RPS, horizontally scalable in AKS.
+
+
 ## ✅ Recommended Stack (for Procure-to-Pay or Invoice Processing Platform)
 
 | Layer                            | Suggested Tech              | Rationale                               |
