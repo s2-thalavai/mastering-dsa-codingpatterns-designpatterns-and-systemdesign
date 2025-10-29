@@ -5,7 +5,7 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 ## Languages Implemented / Used
 
 1. Java
-2. JavaScript
-3. TypeScript
-4. Python
-5. C++
+2. Python
+3. Go
+4. JavaScript
+5. TypeScript
