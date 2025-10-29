@@ -37,11 +37,11 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 
 🧩 Verdict:
 
-Python → easiest to write.
-
-Java → most structured for long-term maintenance.
-
-TypeScript → best balance of JS flexibility and Java-like discipline.
+    Python → easiest to write.
+    
+    Java → most structured for long-term maintenance.
+    
+    TypeScript → best balance of JS flexibility and Java-like discipline.
 
 ## 🚀 3. Performance & Scalability
 
@@ -73,13 +73,13 @@ TypeScript → best balance of JS flexibility and Java-like discipline.
 
 🧩 Verdict:
 
-Go = best for serverless functions, cloud microservices, edge APIs.
-
-Python = best for AI/ETL/automation functions.
-
-JavaScript/TypeScript = best for API gateways & middle services.
-
-Java = best for long-lived, heavy microservices (rule engine, audit).
+    Go = best for serverless functions, cloud microservices, edge APIs.
+    
+    Python = best for AI/ETL/automation functions.
+    
+    JavaScript/TypeScript = best for API gateways & middle services.
+    
+    Java = best for long-lived, heavy microservices (rule engine, audit).
 
 ## 🧠 5. Concurrency & Parallelism
 
@@ -92,11 +92,11 @@ Java = best for long-lived, heavy microservices (rule engine, audit).
 
 🧩 Verdict:
 
-Go wins hands-down for true concurrency.
-
-Java handles enterprise parallel processing well.
-
-Python/JS/TS handle async IO, not heavy parallel workloads.
+    Go wins hands-down for true concurrency.
+    
+    Java handles enterprise parallel processing well.
+    
+    Python/JS/TS handle async IO, not heavy parallel workloads.
 
 ## 🧮 6. Ecosystem & Libraries
 
@@ -111,11 +111,11 @@ Python/JS/TS handle async IO, not heavy parallel workloads.
 
 🧩 Verdict:
 
-Java & Python → richest ecosystems.
-
-Go → strong cloud-native tooling.
-
-TypeScript → best in modern full-stack (API + UI) apps.
+    Java & Python → richest ecosystems.
+    
+    Go → strong cloud-native tooling.
+    
+    TypeScript → best in modern full-stack (API + UI) apps.
 
 ## 🧱 7. Real-World Use Cases
 
