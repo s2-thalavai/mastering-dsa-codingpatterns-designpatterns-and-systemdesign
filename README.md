@@ -168,6 +168,15 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 |           **Use Cases** |  Enterprise, Rule Engines |     ML, Orchestration | High-performance APIs, Stream Consumers |
 
 
+| Stack                         | Concurrency Model | Avg Latency | RPS     | Memory |
+| ----------------------------- | ----------------- | ----------- | ------- | ------ |
+| Spring Boot (Tomcat)          | Thread Pool       | 8–12 ms     | ~20K    | 600 MB |
+| Spring Boot (Virtual Threads) | Loom              | 4–6 ms      | ~60K    | 400 MB |
+| Quarkus (Virtual Threads)     | Loom              | 2–3 ms      | ~120K   | 200 MB |
+| Go (Gin/Fiber equivalent)     | Goroutines        | 2–4 ms      | 90–120K | 150 MB |
+| FastAPI (Python)              | asyncio/uvloop    | 10–15 ms    | ~30K    | 250 MB |
+
+
 ## 💡 Recommendation by Scenario
 
 | Scenario                                                        | Best Choice                                          |
