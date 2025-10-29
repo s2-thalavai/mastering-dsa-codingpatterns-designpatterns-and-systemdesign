@@ -117,7 +117,7 @@ Go → strong cloud-native tooling.
 
 TypeScript → best in modern full-stack (API + UI) apps.
 
-##🧱 7. Real-World Use Cases
+## 🧱 7. Real-World Use Cases
 
 | Use Case                                        | **Best Choice**                  | **Why**                                |
 | ----------------------------------------------- | -------------------------------- | -------------------------------------- |
