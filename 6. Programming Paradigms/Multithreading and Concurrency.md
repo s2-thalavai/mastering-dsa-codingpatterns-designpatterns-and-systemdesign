@@ -754,7 +754,7 @@ k8s deployment patterns, observability, scaling, error/Retry patterns and securi
 
 invoice.uploaded (produced by Invoice Ingest)
 
-```
+```json
 {
   "invoice_id": "INV-2025-0001",
   "vendor_id": "V-420",
@@ -771,7 +771,7 @@ invoice.uploaded (produced by Invoice Ingest)
 
 invoice.ocr.completed
 
-```
+```json
 {
   "invoice_id": "INV-2025-0001",
   "lines": [
@@ -784,7 +784,8 @@ invoice.ocr.completed
 ```
 
 invoice.validation.result
-```
+
+```json
 {
   "invoice_id":"INV-2025-0001",
   "status":"REJECTED",
