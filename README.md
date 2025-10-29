@@ -37,11 +37,11 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 
 🧩 Verdict:
 
-    Python → easiest to write.
+ - Python → easiest to write.
     
-    Java → most structured for long-term maintenance.
+ - Java → most structured for long-term maintenance.
     
-    TypeScript → best balance of JS flexibility and Java-like discipline.
+ - TypeScript → best balance of JS flexibility and Java-like discipline.
 
 ## 🚀 3. Performance & Scalability
 
@@ -53,15 +53,16 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 | **Latency (avg)**     | 15–25 ms               | 25–40 ms             | 5–10 ms ✅          | 10–20 ms                 | 10–20 ms                        |
 | **Concurrency Model** | Threads                | Async IO             | Goroutines ✅       | Event loop               | Event loop                      |
 | **CPU Efficiency**    | High                   | Medium               | Very high ✅        | Medium                   | Medium                          |
+
 🧩 Verdict:
 
-🥇 Go → unmatched raw performance and concurrency.
+- 🥇 Go → unmatched raw performance and concurrency.
 
-🥈 Java → heavy but scalable for enterprise systems.
+- 🥈 Java → heavy but scalable for enterprise systems.
 
-🥉 Node/TypeScript → solid async IO performance for APIs.
+- 🥉 Node/TypeScript → solid async IO performance for APIs.
 
-##☁️ 4. Cloud-Native & Serverless
+## ☁️ 4. Cloud-Native & Serverless
 
 | Aspect                         | **Java**            | **Python**    | **Go**       | **JavaScript** | **TypeScript** |
 | ------------------------------ | ------------------- | ------------- | ------------ | -------------- | -------------- |
@@ -73,13 +74,13 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 
 🧩 Verdict:
 
-    Go = best for serverless functions, cloud microservices, edge APIs.
-    
-    Python = best for AI/ETL/automation functions.
-    
-    JavaScript/TypeScript = best for API gateways & middle services.
-    
-    Java = best for long-lived, heavy microservices (rule engine, audit).
+- Go = best for serverless functions, cloud microservices, edge APIs.
+
+- Python = best for AI/ETL/automation functions.
+
+- JavaScript/TypeScript = best for API gateways & middle services.
+
+- Java = best for long-lived, heavy microservices (rule engine, audit).
 
 ## 🧠 5. Concurrency & Parallelism
 
@@ -92,11 +93,11 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 
 🧩 Verdict:
 
-    Go wins hands-down for true concurrency.
-    
-    Java handles enterprise parallel processing well.
-    
-    Python/JS/TS handle async IO, not heavy parallel workloads.
+- Go wins hands-down for true concurrency.
+
+- Java handles enterprise parallel processing well.
+
+- Python/JS/TS handle async IO, not heavy parallel workloads.
 
 ## 🧮 6. Ecosystem & Libraries
 
@@ -111,11 +112,11 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 
 🧩 Verdict:
 
-    Java & Python → richest ecosystems.
-    
-    Go → strong cloud-native tooling.
-    
-    TypeScript → best in modern full-stack (API + UI) apps.
+- Java & Python → richest ecosystems.
+
+- Go → strong cloud-native tooling.
+
+- TypeScript → best in modern full-stack (API + UI) apps.
 
 ## 🧱 7. Real-World Use Cases
 
@@ -130,6 +131,7 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 | **Full-stack Web App**                          | 🔷 TypeScript (Next.js + NestJS) | Unified stack, high developer velocity |
 
 ## 🧩 8. Team & Maintenance Perspective
+
 | Factor                     | **Java**          | **Python**   | **Go**    | **JS**       | **TS**       |
 | -------------------------- | ----------------- | ------------ | --------- | ------------ | ------------ |
 | **Code Maintainability**   | ✅✅✅               | ✅            | ✅✅        | ⚠️           | ✅✅           |
@@ -138,7 +140,7 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 | **Team Size Suitability**  | Large, structured | Small–medium | Any       | Small–medium | Medium–large |
 | **Hiring Availability**    | Very high         | Very high    | High      | Very high    | Very high    |
 
-##🏁 9. Final Summary Verdict
+## 🏁 9. Final Summary Verdict
 
 | Category                     | 🥇 Winner  | 🥈 Runner-Up | 🥉 Third   |
 | ---------------------------- | ---------- | ------------ | ---------- |
@@ -152,7 +154,7 @@ Data Structures, Algorithms, Coding Patterns, Design Patterns and System Design 
 | **Full-Stack Flexibility**   | TypeScript | Python       | Go         |
 | **Ecosystem & Tooling**      | Java       | Python       | TypeScript |
 
-##🧠 Benchmark Summary
+## 🧠 Benchmark Summary
 
 |        Feature / Metric |      **Java (21 + Loom)** |  **Python (FastAPI)** |                      **Go (Fiber/Gin)** |
 | ----------------------: | ------------------------: | --------------------: | --------------------------------------: |
@@ -208,10 +210,6 @@ That architecture easily sustains >100K RPS, horizontally scalable in AKS.
 | **Validation & Rules (Complex)**    | 🧵 **Gin** or **Spring Boot** |
 | **Async Workers / Kafka Consumers** | ⚡ **Fiber**                   |
 | **ML or AI integrations**           | 🐍 **Python (FastAPI)**       |
-
----
-
-
 
 ---
 ## ✅ Recommended Stack (for Procure-to-Pay or Invoice Processing Platform)
